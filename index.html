@@ -1,128 +1,199 @@
-HTML
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galileo Galilei e il Metodo Scientifico</title>
+    <title>Galileo e il Metodo Scientifico</title>
     <style>
+        /* Stili per il corpo della pagina */
         body {
-            background-color: #add8e6; /* Azzurro */
             font-family: Arial, sans-serif;
+            background-color: #ADD8E6; /* Azzurro */
             margin: 0;
-            padding: 0;
+            padding: 20px;
+            color: #333;
         }
+
+        /* Stili per l'intestazione */
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #4B0082; /* Viola scuro */
+        }
+
+        /* Stili per il menu */
         nav {
             display: flex;
             justify-content: center;
-            padding: 10px;
-            background-color: #333;
-        }
-        .menu-item {
-            padding: 15px 25px;
-            margin: 0 5px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        #menu-viola { background-color: #800080; }
-        #menu-verde { background-color: #008000; }
-        #menu-giallo { background-color: #ffff00; color: black; }
-        #menu-rosso { background-color: #ff0000; }
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1, h2 {
-            color: #333;
-            text-align: center;
-        }
-        .galileo-text {
-            line-height: 1.6;
+            gap: 15px;
             margin-bottom: 20px;
-            text-align: justify;
         }
-        .audio-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .cartoon-summary {
-            background-color: #f0f8ff;
-            border-left: 5px solid #005a9c;
-            padding: 15px;
-            margin-top: 30px;
-            font-style: italic;
-        }
-        .external-link {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-        }
-        .important {
+
+        .menu-item {
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            color: white;
             font-weight: bold;
-            color: #d35400;
+            text-align: center;
         }
-        img {
+
+        /* Colori per i diversi elementi del menu */
+        #audio-link { background-color: purple; }
+        #text1-link { background-color: green; }
+        #text2-link { background-color: yellow; color: black; } /* Testo nero per visibilità */
+        #external-link { background-color: red; }
+
+        /* Stili per il contenitore dei contenuti */
+        .content-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Stili per il contenuto da visualizzare */
+        .content {
+            display: none;
+            line-height: 1.6;
+        }
+
+        .content.active {
             display: block;
-            margin: 20px auto;
-            max-width: 100%;
-            height: auto;
+        }
+        
+        /* Stili per il fumetto del riassunto */
+        .cartoon-summary {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #ffe4e1; /* Rosa chiaro per un effetto più giocoso */
+            border-radius: 15px;
+            border: 2px dashed #ff69b4; /* Bordo a fumetto */
+            position: relative;
+        }
+
+        .cartoon-summary::before {
+            content: "📢";
+            font-size: 2em;
+            position: absolute;
+            top: -15px;
+            left: 10px;
         }
     </style>
 </head>
 <body>
 
+    <header>
+        <h1>Galileo Galilei e la Nascita del Metodo Scientifico</h1>
+    </header>
+
     <nav>
-        <a href="#" class="menu-item" id="menu-viola">Introduzione</a>
-        <a href="#" class="menu-item" id="menu-verde">Il Metodo</a>
-        <a href="#" class="menu-item" id="menu-giallo">La Vita</a>
-        <a href="#" class="menu-item" id="menu-rosso">Riepilogo</a>
+        <div class="menu-item" id="audio-link">Ascolta Galileo</div>
+        <div class="menu-item" id="text1-link">La sua Vita</div>
+        <div class="menu-item" id="text2-link">Le sue Scoperte</div>
+        <div class="menu-item" id="external-link">Approfondisci</div>
     </nav>
 
-    <div class="container">
-        <h1>Galileo Galilei e la Nascita del Metodo Scientifico Moderno</h1>
-        <p class="galileo-text">
-            Benvenuti, giovani menti curiose! Sono io, Galileo Galilei, e oggi vi guiderò attraverso le mie scoperte e le sfide che ho dovuto affrontare. Il mio tempo era pieno di domande, ma pochi avevano il coraggio di cercarne le risposte con i propri occhi. La Chiesa e i poteri del tempo non vedevano di buon occhio chi come me osava mettere in discussione il sapere tradizionale.
-        </p>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Galileo_Galilei_3.jpg" alt="Ritratto di Galileo Galilei">
-
-        <div class="audio-container">
-            <p>Ascolta la mia storia:</p>
+    <main class="content-container">
+        <div id="audio-content" class="content active">
+            <h2>Le parole di Galileo</h2>
+            <p>Ascolta la sua storia, le sue sfide e l'importanza del suo metodo.</p>
             <audio controls>
-                <source src="il_tuo_file_audio.mp3" type="audio/mpeg">
+                <source src="tuo-audio.mp3" type="audio/mpeg">
                 Il tuo browser non supporta l'elemento audio.
             </audio>
         </div>
 
-        <p class="galileo-text">
-            Il mio nemico più grande non è stata la Chiesa, ma l'inerzia del pensiero. I dogmi e le teorie di Aristotele erano la verità indiscussa, e il cielo era considerato immutabile. Le mie osservazioni con il <span class="important">cannocchiale</span> hanno mostrato un universo in continuo movimento, con le lune di Giove che orbitavano intorno al pianeta e la Luna con le sue montagne e valli. Queste scoperte hanno gettato le basi per una nuova scienza.
-        </p>
+        <div id="text1-content" class="content">
+            <h2>Galileo racconta la sua vita</h2>
+            <div id="text1-placeholder">Caricamento in corso...</div>
+        </div>
 
-        <p class="galileo-text">
-            Per me, la scienza non doveva essere un dibattito tra libri, ma un dialogo con la natura. Per questo ho sviluppato il mio <span class="important">metodo</span>, basato sull'osservazione, l'ipotesi, l'esperimento e l'analisi matematica. Non è stato un percorso facile, sono stato processato e condannato, costretto a rinnegare le mie scoperte. Ma la verità, come il sole, non si può nascondere a lungo.
-        </p>
+        <div id="text2-content" class="content">
+            <h2>L'importanza del Metodo Scientifico</h2>
+            <div id="text2-placeholder">Caricamento in corso...</div>
+        </div>
 
-        <p class="galileo-text">
-            Gli ultimi anni della mia vita sono stati segnati dalla sofferenza. La cecità mi ha privato della vista delle stelle che amavo tanto, ma la mia mente è rimasta lucida. Il conforto e le cure della mia amata figlia Virginia, che divenne suor Maria Celeste, sono stati il mio più grande supporto. La sua devozione mi ha aiutato a sopportare il dolore e la solitudine.
-        </p>
-
-        <a href="https://it.wikipedia.org/wiki/Galileo_Galilei" target="_blank" class="external-link">Scopri di più sulla vita di Galileo</a>
-
-        <hr>
+        <div id="external-content" class="content">
+            <h2>Approfondimenti</h2>
+            <p>Clicca sul link qui sotto per esplorare ulteriormente la vita e le opere di Galileo Galilei.</p>
+            <a href="https://it.wikipedia.org/wiki/Galileo_Galilei" target="_blank" id="external-link-button">Vai al link esterno</a>
+        </div>
 
         <div class="cartoon-summary">
-            <h2>🌍 Riassunto per i miei amici non italofoni 🗣️</h2>
-            <p><strong>Hi! I'm Galileo!</strong> 🪐 In my time, people believed the Earth was the center of the universe. I used a special telescope to look at the sky. I saw that the moon has mountains and that Jupiter has moons that go around it!</p>
-            <p>I created a new way to do science: <span class="important">look, think, test, and write down the numbers</span>. This is the **Scientific Method**! Not everyone liked my ideas, and I had some problems. But my work changed how we see the universe forever! ✨</p>
-            <p>Later in life, I went blind 😔, but my daughter helped me a lot. Her love was very important to me.</p>
+            <h3>Hey, students! A quick cartoon summary! 🥳</h3>
+            <p>
+                **Galileo Galilei** was a super smart scientist who lived a long time ago. 🔭 He didn't just believe old ideas, he wanted to **see for himself**!
+            </p>
+            <p>
+                He used a special way to study things: the **Scientific Method**. It's like a recipe for discovery!
+            </p>
+            <ol>
+                <li>First, you **look** at something interesting. 🤔</li>
+                <li>Then, you **guess** why it happens. 💡</li>
+                <li>Finally, you **do an experiment** to check if your guess is right! 🧪</li>
+            </ol>
+            <p>
+                He had some enemies who didn't like his new ideas. But he kept going! He even went blind later in life, but his daughter took great care of him. ❤️
+            </p>
+            <p>
+                Galileo's method taught us that knowledge comes from **proof**, not just from old books. What an amazing guy!
+            </p>
+            
         </div>
-    </div>
+    </main>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuLinks = document.querySelectorAll('.menu-item');
+            const contents = document.querySelectorAll('.content');
+            const externalLinkButton = document.getElementById('external-link-button');
+
+            // Funzione per caricare i testi da un file
+            async function loadText(file, placeholderId) {
+                try {
+                    const response = await fetch(file);
+                    const text = await response.text();
+                    document.getElementById(placeholderId).textContent = text;
+                } catch (error) {
+                    document.getElementById(placeholderId).textContent = 'Errore nel caricamento del testo.';
+                }
+            }
+
+            // Carica i testi all'avvio
+            loadText('testo1.txt', 'text1-placeholder');
+            loadText('testo2.txt', 'text2-placeholder');
+
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    // Rimuovi la classe 'active' da tutti i contenuti
+                    contents.forEach(content => content.classList.remove('active'));
+
+                    // Mostra il contenuto corrispondente al link cliccato
+                    const contentId = link.id.replace('-link', '-content');
+                    const targetContent = document.getElementById(contentId);
+                    
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    } else if (link.id === 'external-link') {
+                        // Per il link esterno, apriamo un'altra pagina o mostriamo il bottone
+                        document.getElementById('external-content').classList.add('active');
+                    }
+                });
+            });
+
+            // Per il link esterno, apriamo in una nuova scheda
+            if (externalLinkButton) {
+                externalLinkButton.addEventListener('click', (event) => {
+                    event.preventDefault(); // Previene il comportamento di default del link
+                    window.open(externalLinkButton.href, '_blank');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
