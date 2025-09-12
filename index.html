@@ -45,8 +45,10 @@
         /* Colori per i diversi elementi del menu */
         #audio-link { background-color: purple; }
         #text1-link { background-color: green; }
-        #text2-link { background-color: yellow; color: black; } /* Testo nero per visibilità */
+        #text2-link { background-color: yellow; color: black; }
         #external-link { background-color: red; }
+        /* Nuovo stile per il pulsante rosa */
+        #music-link { background-color: hotpink; }
 
         /* Stili per il contenitore dei contenuti */
         .content-container {
@@ -95,6 +97,7 @@
         <div class="menu-item" id="audio-link">Ascolta Galileo</div>
         <div class="menu-item" id="text1-link">La sua Vita</div>
         <div class="menu-item" id="text2-link">I miei eredi</div>
+        <div class="menu-item" id="music-link">Galileo in musica</div>
         <div class="menu-item" id="external-link">Viaggio nello spazio</div>
     </nav>
 
@@ -116,6 +119,16 @@
         <div id="text2-content" class="content">
             <h2>Gli eredi del metodo scientifico</h2>
             <div id="text2-placeholder">Caricamento in corso...</div>
+        </div>
+
+        <div id="music-content" class="content">
+            <h2>Galileo in musica</h2>
+            <p>Un viaggio sonoro tra le stelle.</p>
+            <div class="video-container">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/FraKGr7mhzk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/c5IDmx5D5Oo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </div>
 
         <div id="external-content" class="content">
@@ -148,7 +161,8 @@
             <p>
                 Galileo's method taught us that knowledge comes from **proof**, not just from old books. What an amazing guy!
             </p>
-                    </div>
+            
+        </div>
     </main>
 
     <script>
@@ -157,6 +171,7 @@
             const contents = document.querySelectorAll('.content');
             const externalLinkButton = document.getElementById('external-link-button');
             const galileoAudio = document.getElementById('galileo-audio');
+            const musicIframes = document.querySelectorAll('#music-content iframe');
 
             // Funzione per caricare i testi da un file
             async function loadText(file, placeholderId) {
@@ -178,36 +193,4 @@
                     // Rimuovi la classe 'active' da tutti i contenuti
                     contents.forEach(content => content.classList.remove('active'));
                     
-                    // Metti in pausa l'audio se si cambia sezione
-                    if (!galileoAudio.paused) {
-                        galileoAudio.pause();
-                    }
-
-                    // Mostra il contenuto corrispondente al link cliccato
-                    const contentId = link.id.replace('-link', '-content');
-                    const targetContent = document.getElementById(contentId);
-                    
-                    if (targetContent) {
-                        targetContent.classList.add('active');
-                        // Se è la sezione audio, fai partire l'audio
-                        if (link.id === 'audio-link') {
-                            galileoAudio.play();
-                        }
-                    } else if (link.id === 'external-link') {
-                        // Per il link esterno
-                        document.getElementById('external-content').classList.add('active');
-                    }
-                });
-            });
-
-            // Per il link esterno, apriamo in una nuova scheda
-            if (externalLinkButton) {
-                externalLinkButton.addEventListener('click', (event) => {
-                    event.preventDefault();
-                    window.open(externalLinkButton.href, '_blank');
-                });
-            }
-        });
-    </script>
-</body>
-</html>
+                    // Metti in pausa l'audio e ferma i video quando si cambia sezione
