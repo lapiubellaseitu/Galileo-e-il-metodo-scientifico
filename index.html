@@ -174,7 +174,7 @@
                     // Rimuovi la classe 'active' da tutti i contenuti
                     contents.forEach(content => content.classList.remove('active'));
                     
-                    // Metti in pausa l'audio quando si cambia sezione
+                    // Metti in pausa l'audio se si cambia sezione
                     if (!galileoAudio.paused) {
                         galileoAudio.pause();
                     }
