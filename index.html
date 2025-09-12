@@ -102,7 +102,7 @@
         <div id="audio-content" class="content">
             <h2>Le parole di Galileo</h2>
             <p>Ascolta la sua storia, le sue sfide e l'importanza del suo metodo.</p>
-            <audio controls>
+            <audio controls id="galileo-audio">
                 <source src="tuo-audio.mp3" type="audio/mpeg">
                 Il tuo browser non supporta l'elemento audio.
             </audio>
@@ -152,6 +152,7 @@
             const menuLinks = document.querySelectorAll('.menu-item');
             const contents = document.querySelectorAll('.content');
             const externalLinkButton = document.getElementById('external-link-button');
+            const galileoAudio = document.getElementById('galileo-audio');
 
             // Funzione per caricare i testi da un file
             async function loadText(file, placeholderId) {
@@ -172,6 +173,11 @@
                 link.addEventListener('click', () => {
                     // Rimuovi la classe 'active' da tutti i contenuti
                     contents.forEach(content => content.classList.remove('active'));
+                    
+                    // Metti in pausa l'audio quando si cambia sezione
+                    if (!galileoAudio.paused) {
+                        galileoAudio.pause();
+                    }
 
                     // Mostra il contenuto corrispondente al link cliccato
                     const contentId = link.id.replace('-link', '-content');
@@ -179,8 +185,12 @@
                     
                     if (targetContent) {
                         targetContent.classList.add('active');
+                        // Se è la sezione audio, fai partire l'audio
+                        if (link.id === 'audio-link') {
+                            galileoAudio.play();
+                        }
                     } else if (link.id === 'external-link') {
-                        // Per il link esterno, apriamo un'altra pagina o mostriamo il bottone
+                        // Per il link esterno
                         document.getElementById('external-content').classList.add('active');
                     }
                 });
@@ -189,7 +199,7 @@
             // Per il link esterno, apriamo in una nuova scheda
             if (externalLinkButton) {
                 externalLinkButton.addEventListener('click', (event) => {
-                    event.preventDefault(); // Previene il comportamento di default del link
+                    event.preventDefault();
                     window.open(externalLinkButton.href, '_blank');
                 });
             }
