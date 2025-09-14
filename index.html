@@ -3,125 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galileo e il Metodo Scientifico</title>
+    <title>Galileo Galilei</title>
     <style>
-        /* Stili per il corpo della pagina */
         body {
             font-family: Arial, sans-serif;
-            background-color: #ADD8E6; /* Azzurro */
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
             color: #333;
         }
-
-        /* Stili per l'intestazione */
         header {
+            background-color: #333;
+            color: #fff;
             text-align: center;
-            margin-bottom: 20px;
+            padding: 1em 0;
         }
-
-        h1 {
-            color: #4B0082; /* Viola scuro */
+        .container {
+            width: 90%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
         }
-
-        /* Stili per il menu */
-        nav {
+        .bio {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .buttons {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             gap: 15px;
-            margin-bottom: 20px;
+            margin-top: 20px;
         }
-
-        .menu-item {
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            color: white;
-            font-weight: bold;
+        .buttons a {
+            flex: 1 1 150px;
+            padding: 15px;
             text-align: center;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            transition: background-color 0.3s ease;
         }
-
-        /* Colori per i diversi elementi del menu */
-        #audio-link { background-color: purple; }
-        #text1-link { background-color: green; }
-        #text2-link { background-color: yellow; color: black; }
-        #external-link { background-color: red; }
-        /* Nuovo stile per il pulsante rosa */
-        #music-link { background-color: hotpink; }
-
-        /* Stili per il contenitore dei contenuti */
-        .content-container {
-            background-color: white;
+        .blue { background-color: #007BFF; }
+        .green { background-color: #28a745; }
+        .yellow { background-color: #ffc107; color: #333; }
+        .pink { background-color: #e83e8c; }
+        .red { background-color: #dc3545; }
+        .buttons a:hover {
+            opacity: 0.8;
+        }
+        .cartoon-section {
+            background: #fff;
             padding: 20px;
+            margin-top: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Stili per il contenuto da visualizzare */
-        .content {
-            display: none;
-            line-height: 1.6;
-        }
-
-        .content.active {
-            display: block;
-        }
-        
-        /* Stili per il fumetto del riassunto */
-        .cartoon-summary {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #ffe4e1; /* Rosa chiaro per un effetto più giocoso */
-            border-radius: 15px;
-            border: 2px dashed #ff69b4; /* Bordo a fumetto */
-            position: relative;
-        }
-
-        .cartoon-summary::before {
-            content: "📢";
-            font-size: 2em;
-            position: absolute;
-            top: -15px;
-            left: 10px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Galileo Galilei e la Nascita del Metodo Scientifico</h1>
-    </header>
+<header>
+    <h1>Galileo Galilei</h1>
+    <p>Il padre della scienza moderna</p>
+</header>
 
-    <nav>
-        <div class="menu-item" id="audio-link">Ascolta Galileo</div>
-        <div class="menu-item" id="text1-link">La sua Vita</div>
-        <div class="menu-item" id="text2-link">I miei eredi</div>
-        <div class="menu-item" id="music-link">Galileo in musica</div>
-        <div class="menu-item" id="external-link">Viaggio nello spazio</div>
-    </nav>
+<div class="container">
+    <div class="bio">
+        <p>Galileo Galilei (Pisa, 15 febbraio 1564 – Arcetri, 8 gennaio 1642) è stato un fisico, astronomo, filosofo e matematico italiano. È considerato il fondatore della scienza moderna grazie al suo approccio basato sull'osservazione, l'esperimento e la formulazione di ipotesi matematiche, noto come **metodo scientifico**.</p>
+    </div>
 
-    <main class="content-container">
-        <div id="audio-content" class="content">
-            <h2>Le parole di Galileo</h2>
-            <p>Ascolta la sua storia, le sue sfide e l'importanza del suo metodo.</p>
-            <audio controls id="galileo-audio">
-                <source src="tuo-audio.mp3" type="audio/mpeg">
-                Il tuo browser non supporta l'elemento audio.
-            </audio>
-        </div>
+    <div class="buttons">
+        <a href="https://raw.githubusercontent.com/TUO-NOME-UTENTE/TUO-REPO/main/audio/galileo-audio.mp3" class="blue" target="_blank">ASCOLTA GALILEO</a>
+        <a href="https://raw.githubusercontent.com/TUO-NOME-UTENTE/TUO-REPO/main/documents/il-metodo.txt" class="green" target="_blank">IL METODO</a>
+        <a href="https://raw.githubusercontent.com/TUO-NOME-UTENTE/TUO-REPO/main/documents/gli-eredi.txt" class="yellow" target="_blank">GLI EREDI</a>
+        <a href="https://www.youtube.com/watch?v=YOUR-VIDEO-ID-HERE" class="pink" target="_blank">VIAGGIO NELLO SPAZIO</a>
+        <a href="https://www.youtube.com/watch?v=ANOTHER-VIDEO-ID-HERE" class="red" target="_blank">GALILEO IN MUSICA</a>
+    </div>
+    
+    <div class="cartoon-section">
+        <h2>Per i miei amici che non parlano italiano...</h2>
+        <a href="https://www.youtube.com/watch?v=CARTOON-VIDEO-ID" target="_blank">
+            <button class="yellow">
+                <img src="https://via.placeholder.com/150" alt="Cartoon per studenti in inglese" style="width:100px; height:auto;">
+                <br>
+                Guarda il video (in inglese)
+            </button>
+        </a>
+    </div>
 
-        <div id="text1-content" class="content">
-            <h2>Galileo racconta la sua vita</h2>
-            <div id="text1-placeholder">Caricamento in corso...</div>
-        </div>
+</div>
 
-        <div id="text2-content" class="content">
-            <h2>Gli eredi del metodo scientifico</h2>
-            <div id="text2-placeholder">Caricamento in corso...</div>
-        </div>
-
-        <div id="music-content" class="content">
-            <h2>Galileo in musica</h2>
-            <p>Un viaggio sonoro tra le stelle.</p>
-            <div class="video-container">
+</body>
+</html>
